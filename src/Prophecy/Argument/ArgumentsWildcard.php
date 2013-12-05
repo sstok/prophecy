@@ -73,6 +73,33 @@ class ArgumentsWildcard
     }
 
     /**
+     * Returns if the given ArgumentsWildcard
+     * equals this ArgumentsWildcard.
+     *
+     * @param ArgumentsWildcard $arguments
+     *
+     * @return bool
+     */
+    public function equals(ArgumentsWildcard $arguments)
+    {
+        $tokens = $arguments->getTokens();
+
+        if (count($tokens) <> count($this->tokens)) {
+            return false;
+        }
+
+        foreach ($this->tokens as $i => $token) {
+            if (get_class($tokens[$i]) !== get_class($token)) {
+                return false;
+            }
+
+            //$tokens[$i]->
+        }
+
+        return true;
+    }
+
+    /**
      * Returns string representation for wildcard.
      *
      * @return string
